@@ -1,6 +1,6 @@
 # Requisitos:
 
-- PHP: 8.1
+- PHP: 8.2
 - Node JS: 18
 - Composer
 - MySQL (Opcional, puedes usarlo con sqlite)
