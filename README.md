@@ -14,7 +14,7 @@ Sigue estos pasos para configurar el proyecto y ejecutarlo correctamente en tu e
 Primero, debes crear el archivo de configuración `.env`. Puedes copiar el contenido del archivo `.env.example` que ya se encuentra en el repositorio:
 
 ```bash
-cp .env.example .env
+.env.example .env
 ```
 
 ### Configuración de la Base de Datos
@@ -22,17 +22,17 @@ cp .env.example .env
 Si usas MySQL, asegúrate de modificar los datos de conexión en el archivo `.env`:
 
 ```bash
-cp DB_CONNECTION=mysql
-cp DB_HOST=tu_host
-cp DB_PORT=port
-cp DB_DATABASE=nombre_base_de_datos
-cp DB_USERNAME=usuario
-cp DB_PASSWORD=contraseña
+DB_CONNECTION=mysql
+DB_HOST=tu_host
+DB_PORT=port
+DB_DATABASE=nombre_base_de_datos
+DB_USERNAME=usuario
+DB_PASSWORD=contraseña
 ```
 
 En caso de que prefieras utilizar SQLite, simplemente cambia la configuración en el archivo `.env` como sigue:
 ```bash
-cp DB_CONNECTION=sqlite
+DB_CONNECTION=sqlite
 ```
 
 ### Configuración de la API Key de Giphy
@@ -40,7 +40,7 @@ cp DB_CONNECTION=sqlite
 Si prefieres, puedes generar tu propia API Key de Giphy y añadirla al archivo .env. Si no, puedes usar la clave proporcionada en el archivo de ejemplo; sin embargo, esta clave será eliminada en unas semanas.
 
 ```bash
-cp GIPHY_API_KEY=cZxtcBF7SwMeWLu5d4huUwOx4PSLeio0
+GIPHY_API_KEY=cZxtcBF7SwMeWLu5d4huUwOx4PSLeio0
 ```
 
 ## 2. Instalar las dependencias de Composer
@@ -48,7 +48,7 @@ cp GIPHY_API_KEY=cZxtcBF7SwMeWLu5d4huUwOx4PSLeio0
 Instala las dependencias de PHP con Composer ejecutando el siguiente comando:
 
 ```bash
-cp composer install
+composer install
 ```
 
 ## 3. Instalar las dependencias de Node.js
@@ -56,7 +56,7 @@ cp composer install
 Instala las dependencias del frontend usando NPM:
 
 ```bash
-cp npm install
+npm install
 ```
 
 ## 4. Generar la clave de la aplicación
@@ -64,7 +64,7 @@ cp npm install
 Genera una clave única para la aplicación ejecutando el siguiente comando:
 
 ```bash
-cp php artisan key:generate
+php artisan key:generate
 ```
 
 ## 5. Ejecutar las migraciones de la base de datos
@@ -72,7 +72,7 @@ cp php artisan key:generate
 Ejecuta las migraciones para crear las tablas en la base de datos:
 
 ```bash
-cp php artisan migrate
+php artisan migrate
 ```
 
 Durante este proceso, si se te solicita que se cree la base de datos, escribe yes.
@@ -83,7 +83,7 @@ Durante este proceso, si se te solicita que se cree la base de datos, escribe ye
 Para preparar el frontend para producción o pruebas, ejecuta el siguiente comando:
 
 ```bash
-cp npm run build
+npm run build
 ```
 
 ## 7. Generar la build del frontend
@@ -91,7 +91,7 @@ cp npm run build
 Finalmente, inicia el servidor local de PHP para ejecutar la aplicación:
 
 ```bash
-cp php artisan serve
+php artisan serve
 ```
 
 Esto iniciará la aplicación en [http://localhost:8000](http://localhost:8000 "http://localhost:8000").
