@@ -95,3 +95,40 @@ php artisan serve
 ```
 
 Esto iniciará la aplicación en [http://localhost:8000](http://localhost:8000 "http://localhost:8000").
+
+
+# Estructura de archivos:
+
+El proyecto tiene un patron de diseño MVC, está hecho con las tecnologias Laravel para el backend, e Inertia con React js para el frontend, Inertia integra el frontend hecho con React en la aplicación monolitica, y no es necesario tener dos repositorios separados (server, client). El CRUD y el manejo de los tickets se realizan mediante una API REST.
+
+## Las rutas están expuestas en:
+
+- routes
+    - api.php
+
+## Controlador:
+
+El controlador se encarga de manejar las peticiones que llegan desde el frontend, el archivo del controlador está dentro de:
+
+- app
+    - Http
+        - Controllers
+            - TicketsController.php
+            - HomeController.php (Solo maneja la vista principal)
+
+## Modelo:
+
+El archivo de modelo contiene la estructura de la tabla tickets, se encuentra en:
+
+- app
+    - Models
+        - Ticket.php
+
+## Vistas:
+
+Las vistas son hechas con React js, las mismas están en el directorio:
+
+- resources
+    - js
+
+En este directorio se encuentran los archivos de la vista, tal como sería la carpeta src en un proyecto de React Vanilla.
