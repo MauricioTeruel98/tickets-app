@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { XIcon } from 'lucide-react';
 import { usePage } from '@inertiajs/react';
+import { toast } from 'react-toastify';
 
 const TicketForm = ({ onClose, onSubmit, isEditMode, initialTicket }) => {
   const { props } = usePage();
@@ -26,14 +27,24 @@ const TicketForm = ({ onClose, onSubmit, isEditMode, initialTicket }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const gifUrl = await fetchGif(ticket.difficulty);
-    onSubmit({ ...ticket, gif_url: gifUrl });
+    try {
+      const gifUrl = await fetchGif(ticket.difficulty);
+      onSubmit({ ...ticket, gif_url: gifUrl });
+    } catch (error) {
+      console.error("Error fetching GIF:", error);
+      toast.error('No se pudo obtener un GIF. El ticket se creará sin imagen.');
+      onSubmit(ticket);
+    }
   };
 
   const fetchGif = async (difficulty) => {
     const apiKey = props.giphyApiKey;
-    let searchTerm;
+    if (!apiKey) {
+      toast.error('No se ha configurado la API key de Giphy. Por favor, contacte al administrador.');
+      throw new Error('Giphy API key not found');
+    }
 
+    let searchTerm;
     switch (difficulty) {
       case 'easy':
         searchTerm = 'nice';
@@ -48,9 +59,18 @@ const TicketForm = ({ onClose, onSubmit, isEditMode, initialTicket }) => {
         searchTerm = 'neutral';
     }
 
-    const response = await fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=${searchTerm}`);
-    const data = await response.json();
-    return data.data.images.fixed_height.url;
+    try {
+      const response = await fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=${searchTerm}`);
+      const data = await response.json();
+      if (data.data && data.data.images && data.data.images.fixed_height) {
+        return data.data.images.fixed_height.url;
+      } else {
+        throw new Error('Invalid Giphy API response');
+      }
+    } catch (error) {
+      console.error("Error fetching GIF from Giphy:", error);
+      throw error;
+    }
   };
 
   return (

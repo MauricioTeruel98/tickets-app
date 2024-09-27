@@ -123,14 +123,6 @@ function TicketManagerContent() {
                             ) : (
                                 <div className="text-center py-10">
                                     <p className="text-xl text-gray-600">No hay tickets creados en este momento.</p>
-                                    <motion.button
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        onClick={handleNewTicket}
-                                        className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full inline-flex items-center"
-                                    >
-                                        Crear Nuevo Ticket
-                                    </motion.button>
                                 </div>
                             )}
                         </div>
