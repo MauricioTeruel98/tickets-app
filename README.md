@@ -11,10 +11,10 @@ Sigue estos pasos para configurar el proyecto y ejecutarlo correctamente en tu e
 
 ## 1. Crear el archivo `.env`
 
-Primero, debes crear el archivo de configuración `.env`. Puedes copiar el contenido del archivo `.env.example` que ya se encuentra en el repositorio:
+Primero, debes crear el archivo de configuración `.env`. Puedes copiar el contenido del archivo `.env.mysql.example` o `.env.sqlite.example` dependiendo si quieres usar MySQL o SQLite:
 
 ```bash
-.env.example .env
+.env
 ```
 
 ### Configuración de la Base de Datos
