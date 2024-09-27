@@ -40,7 +40,7 @@ DB_CONNECTION=sqlite
 Si prefieres, puedes generar tu propia API Key de Giphy y añadirla al archivo .env. Si no, puedes usar la clave proporcionada en el archivo de ejemplo; sin embargo, esta clave será eliminada en unas semanas.
 
 ```bash
-GIPHY_API_KEY=cZxtcBF7SwMeWLu5d4huUwOx4PSLeio0
+GIPHY_API_KEY=MIMRXmh4PZAQ0bsR4IO4qNtDMlCUXj40
 ```
 
 ## 2. Instalar las dependencias de Composer
